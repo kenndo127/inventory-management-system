@@ -1,5 +1,6 @@
 package org.kenneth.inventoryManagement.main;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
@@ -28,15 +29,15 @@ public class Main {
     private static void addProduct(){
         System.out.println("Fill in the values");
 
-        System.out.println("Product_id: ");
+        System.out.print("Product_id: ");
         String id = scan.next();
         System.out.println("Product_name: ");
         String productName = scan.next();
-        System.out.println("Product_price: ");
+        System.out.print("Product_price: ");
         double price = scan.nextDouble();
-        System.out.println("Product_quantity: ");
+        System.out.print("Product_quantity: ");
         int quantity = scan.nextInt();
-        System.out.println("Product_category: ");
+        System.out.print("Product_category: ");
         String category = scan.next();
 
         inventoryService.addProduct(new Product(id, productName, price, quantity, category));
@@ -44,11 +45,34 @@ public class Main {
     }
 
     private static void updateQuantity(String productName, int quantity){
-        System.out.println("Enter the product name: ");
+        System.out.print("Enter the product name: ");
         String name = scan.next();
-        System.out.println("Enter the current quantity: ");
+        System.out.print("Enter the current quantity: ");
         int currentQuantity  = scan.nextInt();
 
         System.out.println(inventoryService.updateQuantity(name, currentQuantity));
+    }
+
+    private static void searchProduct(String productName){
+        System.out.print("Enter product name: ");
+        String name = scan.next();
+
+        System.out.println(inventoryService.search(name));
+    }
+
+    private static void listProducts(){
+        inventoryService.listSortedByPrice();
+    }
+
+    private static void totalInventoryValue(){
+        DecimalFormat myFormatter = new DecimalFormat("###,###.##");
+        System.out.println(myFormatter.format(inventoryService.totalInventoryValue()));
+    }
+
+    private static void removeProduct(String productName){
+        System.out.println("Enter the product name: ");
+        String name = scan.next();
+
+        System.out.println(inventoryService.removeProduct(productName));
     }
 }

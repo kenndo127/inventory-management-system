@@ -19,8 +19,8 @@ public class InventoryService {
     public void listSortedByPrice(){
         inventoryRepository.listSortedByPrice();
     }
-    public void removeProduct(String productName){
-        inventoryRepository.removeProduct(productName);
+    public String removeProduct(String productName){
+        return inventoryRepository.removeProduct(productName);
     }
     public double totalInventoryValue(){
         return inventoryRepository.totalInventoryValue();

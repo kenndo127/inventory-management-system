@@ -36,19 +36,19 @@ public class InventoryRepository {
         Collections.sort(priceList, (a, b) -> Double.compare(a.getValue().getPrice(), b.getValue().getPrice()));
 
         //display the result
-        for (Map.Entry<String, Product> productEntry : productHashMap.entrySet()){
+        for (Map.Entry<String, Product> productEntry : priceList){
             System.out.println(productEntry.getValue().getName() + " : " + productEntry.getValue().getPrice());
         }
     }
 
-    public void removeProduct(String productName){
+    public String removeProduct(String productName){
         for(Map.Entry<String, Product> productEntry : productHashMap.entrySet()){
             if (productEntry.getValue().getName().equalsIgnoreCase(productName)) {
                 productHashMap.remove(productEntry.getKey());
-                System.out.println(productEntry.getValue().getName() + " has been removed!");
-                break;
+                return productEntry.getValue().getName() + " has been removed!";
             }
         }
+        return productName + "does not exist! ";
     }
 
     public double totalInventoryValue(){
