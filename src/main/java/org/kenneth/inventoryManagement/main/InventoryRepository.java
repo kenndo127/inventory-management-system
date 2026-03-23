@@ -9,12 +9,14 @@ public class InventoryRepository {
         productHashMap.put(product.getId(), product);
     }
 
-    public void updateQuantity(String productName, int productQuantity){
+    public String updateQuantity(String productName, int productQuantity){
         for(Product product : productHashMap.values()){
             if(product.getName().equals(productName)){
                 product.setQuantity(productQuantity);
+                return productName + " quantity updated to " + productQuantity;
             }
         }
+        return productName + "not found!";
     }
 
     public String search(String productName){

@@ -42,4 +42,13 @@ public class Main {
         inventoryService.addProduct(new Product(id, productName, price, quantity, category));
         System.out.println(productName + "has been added to the Inventory");
     }
+
+    private static void updateQuantity(String productName, int quantity){
+        System.out.println("Enter the product name: ");
+        String name = scan.next();
+        System.out.println("Enter the current quantity: ");
+        int currentQuantity  = scan.nextInt();
+
+        System.out.println(inventoryService.updateQuantity(name, currentQuantity));
+    }
 }

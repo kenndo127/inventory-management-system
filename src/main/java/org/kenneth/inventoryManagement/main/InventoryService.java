@@ -10,8 +10,8 @@ public class InventoryService {
     public void addProduct(Product product){
         inventoryRepository.addProduct(product);
     }
-    public void updateQuantity(String productName, int productQuantity){
-        inventoryRepository.updateQuantity(productName, productQuantity);
+    public String updateQuantity(String productName, int productQuantity){
+        return inventoryRepository.updateQuantity(productName, productQuantity);
     }
     public String search(String productName){
         return inventoryRepository.search(productName);
