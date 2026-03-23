@@ -8,7 +8,6 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Main {
-    // create a static variable here
     static Scanner scan = new Scanner(System.in);
     static InventoryRepository inventoryRepository = new InventoryRepository();
     static InventoryService inventoryService = new InventoryService(inventoryRepository);
