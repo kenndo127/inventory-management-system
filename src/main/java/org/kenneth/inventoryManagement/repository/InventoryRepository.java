@@ -1,4 +1,6 @@
-package org.kenneth.inventoryManagement.main;
+package org.kenneth.inventoryManagement.repository;
+
+import org.kenneth.inventoryManagement.entity.Product;
 
 import java.util.*;
 
@@ -16,7 +18,7 @@ public class InventoryRepository {
                 return productName + " quantity updated to " + productQuantity;
             }
         }
-        return productName + "not found!";
+        return productName + " not found!";
     }
 
     public String search(String productName){
@@ -29,6 +31,10 @@ public class InventoryRepository {
     }
 
     public void listSortedByPrice(){
+        if(productHashMap.isEmpty()){
+            System.out.println("The Inventory is empty");
+        }
+
         //Turn map into a list
         List<Map.Entry<String, Product>> priceList = new ArrayList<>(productHashMap.entrySet());
 

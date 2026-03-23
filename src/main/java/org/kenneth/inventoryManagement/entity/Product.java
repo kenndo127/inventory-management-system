@@ -1,4 +1,4 @@
-package org.kenneth.inventoryManagement.main;
+package org.kenneth.inventoryManagement.entity;
 
 public class Product {
     private String id;

@@ -1,4 +1,7 @@
-package org.kenneth.inventoryManagement.main;
+package org.kenneth.inventoryManagement.services;
+
+import org.kenneth.inventoryManagement.entity.Product;
+import org.kenneth.inventoryManagement.repository.InventoryRepository;
 
 public class InventoryService {
     private final InventoryRepository inventoryRepository;
